@@ -71,7 +71,8 @@ public class implClient implements ClientsService {
 			String avatar = (String) map.get("avatar");
 			boolean admin = (boolean) map.get("admin");
 			String address = (String) map.get("address");
-			UserOne user = new UserOne(id, username, password, name, email, phonenumber, dateofbirth, avatar, admin, address);
+			String gender = (String) map.get("gender");
+			UserOne user = new UserOne(id, username, password, name, gender, email, phonenumber, dateofbirth, avatar, admin, address);
 			return new ClientDAO().update(user);
 		} catch (Exception e) {
 			e.printStackTrace();

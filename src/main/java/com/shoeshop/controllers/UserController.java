@@ -130,6 +130,7 @@ public class UserController extends JwtAuthenticationController {
 		String phone = body.get("phone");
 		String dateString = body.get("date");
 		String address = body.get("address");
+		String gender = body.get("gender");
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = dateFormat.parse(dateString);
 		LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -144,6 +145,7 @@ public class UserController extends JwtAuthenticationController {
 					user.setPhonenumber(phone);
 					user.setDateofbirth(newDate);
 					user.setAddress(address);
+					user.setGender(gender);
 					return new UserDAO().update(user);
 				} else {
 					return false;

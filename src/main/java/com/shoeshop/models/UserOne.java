@@ -21,6 +21,8 @@ public class UserOne implements Serializable {
 	private String password;
 	@Column(columnDefinition = "NVARCHAR(MAX)")
 	private String name;
+	private String gender;
+	@Column(unique = true)
 	private String email;
 	private String phonenumber;
 	private Date dateofbirth;
@@ -90,25 +92,41 @@ public class UserOne implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	@Override
-	public String toString() {
-		return "UserOne [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name + ", email="
-				+ email + ", phonenumber=" + phonenumber + ", dateofbirth=" + dateofbirth + ", avatar=" + avatar
-				+ ", admin=" + admin + ", address=" + address + "]";
-	}
-	public UserOne(int id, String username, String password, String name, String email, String phonenumber,
-			Date dateofbirth, String avatar, boolean admin, String address) {
+	
+	public UserOne(int id, String username, String password, String name, String gender, String email,
+			String phonenumber, Date dateofbirth, String avatar, boolean admin, String address) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.name = name;
+		this.gender = gender;
 		this.email = email;
 		this.phonenumber = phonenumber;
 		this.dateofbirth = dateofbirth;
 		this.avatar = avatar;
 		this.admin = admin;
 		this.address = address;
+	}
+	public UserOne(String username, String password, String name, String gender, String email,
+			String phonenumber, Date dateofbirth, String avatar, boolean admin, String address) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.gender = gender;
+		this.email = email;
+		this.phonenumber = phonenumber;
+		this.dateofbirth = dateofbirth;
+		this.avatar = avatar;
+		this.admin = admin;
+		this.address = address;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	public UserOne(int id) {
 		super();
@@ -117,19 +135,6 @@ public class UserOne implements Serializable {
 	public UserOne() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-	public UserOne(String username, String password, String name, String email, String phonenumber,
-			Date dateofbirth, String avatar, boolean admin, String address) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.name = name;
-		this.email = email;
-		this.phonenumber = phonenumber;
-		this.dateofbirth = dateofbirth;
-		this.avatar = avatar;
-		this.admin = admin;
-		this.address = address;
 	}
 	public UserOne(String username, String password,boolean admin) {
 		super();
