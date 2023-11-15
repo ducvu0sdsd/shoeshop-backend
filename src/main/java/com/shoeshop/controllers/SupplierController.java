@@ -9,18 +9,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shoeshop.models.Supplier;
 import com.shoeshop.service.SupplierService;
 
 @RestController
+@RequestMapping("/api/v1")
 public class SupplierController extends JwtAuthenticationController{
 	
 	@Autowired
 	private SupplierService service;
 	
-	@PostMapping("/supplier/insert-supplier") 
+	@PostMapping("/suppliers/insert-supplier") 
 	public boolean insertSupplier (@RequestHeader("Authorization") String authorizationHeader, @RequestBody Map<String, String> body) {
 		try {
 			boolean isAuth = validateTokenForAdmin(authorizationHeader);
@@ -34,7 +36,7 @@ public class SupplierController extends JwtAuthenticationController{
 		}
 	}
 	
-	@PutMapping("/supplier/update-supplier") 
+	@PutMapping("/suppliers/update-supplier") 
 	public boolean updateSupplier (@RequestHeader("Authorization") String authorizationHeader, @RequestBody Map<String, String> body) {
 		try {
 			boolean isAuth = validateTokenForAdmin(authorizationHeader);
@@ -48,7 +50,7 @@ public class SupplierController extends JwtAuthenticationController{
 		}
 	}
 	
-	@PostMapping("/supplier/delete-supplier") 
+	@PostMapping("/suppliers/delete-supplier") 
 	public boolean deleteSupplier (@RequestHeader("Authorization") String authorizationHeader, @RequestBody Map<String, String> body) {
 		try {
 			boolean isAuth = validateTokenForAdmin(authorizationHeader);
@@ -62,7 +64,7 @@ public class SupplierController extends JwtAuthenticationController{
 		}
 	}
 	
-	@GetMapping("/supplier/get-all-suppliers")
+	@GetMapping("/suppliers/get-all-suppliers")
 	public List<Supplier> getAllSuppliers(@RequestHeader("Authorization") String authorizationHeader) {
 		try {
 			boolean isAuth = validateTokenForAdmin(authorizationHeader);

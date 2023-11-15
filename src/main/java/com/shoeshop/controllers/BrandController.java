@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shoeshop.models.Brand;
@@ -21,6 +22,7 @@ import com.shoeshop.repositories.UserDAO;
 import antlr.collections.List;
 
 @RestController
+@RequestMapping("/api/v1")
 public class BrandController extends JwtAuthenticationController {
 	
 	@PostMapping("/brands/insert-brand") 

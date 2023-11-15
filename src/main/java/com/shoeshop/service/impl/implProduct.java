@@ -61,7 +61,7 @@ public class implProduct implements ProductService{
 					}
 				});
 			});
-			while ( latch.getCount() > 0 ) {System.out.println("insert !!!");}
+			while ( latch.getCount() > 0 ) {System.out.print("");}
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -88,7 +88,7 @@ public class implProduct implements ProductService{
 					c3 = new ImageDAO().deleteRowByProductID(id, "Image");
 				}
 			});
-			while (c3 == false) {System.out.println("Delete !!!");}
+			while (c3 == false) {}
 			// Images
 			CountDownLatch latch = new CountDownLatch(body.get("images").size());
 			body.get("images").forEach(image -> {
@@ -103,7 +103,7 @@ public class implProduct implements ProductService{
 					}
 				});
 			});
-			while ( latch.getCount() > 0 ) {System.out.println(overview);}
+			while ( latch.getCount() > 0 ) {System.out.print("");}
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -132,7 +132,7 @@ public class implProduct implements ProductService{
 					c4 = true;
 				}
 			});
-			while (c2 == false || c4 == false) {System.out.println("Delete !!!");}
+			while (c2 == false || c4 == false) {System.out.print("");}
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -166,7 +166,7 @@ public class implProduct implements ProductService{
 					c3 = true;
 				}
 			});
-			while (c1 == false || c2 == false || c3 == false) {System.out.println("Get !!!");}
+			while (c1 == false || c2 == false || c3 == false) {System.out.println("");}
 			l1.forEach(product -> {
 				List<Image> images = product.getImages();
 				Map<String, Object> map = new HashMap<>();

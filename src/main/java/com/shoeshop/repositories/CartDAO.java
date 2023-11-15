@@ -124,14 +124,15 @@ public class CartDAO {
 		return null;
 	}
 	
-	public boolean updateCartByID(int quantity, int id) {
+	public boolean updateCartByID(int quantity, int id, int co_id) {
 	    Transaction tr = session.getTransaction();
 	    tr.begin();
 	    try {
-	        String hql = "UPDATE Cart SET quantity = :quantity WHERE id = :_id";
+	        String hql = "UPDATE Cart SET quantity = :quantity WHERE user_id = :userId AND colorSize_id = :colorsizeId";
 	        Query query = session.createQuery(hql);
 	        query.setParameter("quantity", quantity);
-	        query.setParameter("_id", id);
+	        query.setParameter("userId", id);
+	        query.setParameter("colorsizeId", co_id);
 	        int rowCount = query.executeUpdate();
 	        tr.commit();
 	        return rowCount > 0;
@@ -145,13 +146,14 @@ public class CartDAO {
 	    return false;
 	}
 	
-	public boolean deleteCartByID(int id) {
+	public boolean deleteCartByID(int user_id, int colorsize_id) {
 	    Transaction tr = session.getTransaction();
 	    tr.begin();
 	    try {
-	        String hql = "DELETE from Cart WHERE id = :_id";
+	        String hql = "DELETE from Cart WHERE user_id = :userId AND colorSize_id = :colorsizeId";
 	        Query query = session.createQuery(hql);
-	        query.setParameter("_id", id);
+	        query.setParameter("userId", user_id);
+			query.setParameter("colorsizeId", colorsize_id);
 	        int rowCount = query.executeUpdate();
 	        tr.commit();
 	        return rowCount > 0;

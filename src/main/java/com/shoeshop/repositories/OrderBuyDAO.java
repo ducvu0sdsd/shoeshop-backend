@@ -82,7 +82,8 @@ public class OrderBuyDAO {
 					+ "		u.id as user_id,\r\n"
 					+ "		u.name as user_name,\r\n"
 					+ "		s.id as supplier_id,\r\n"
-					+ "		s.supplierName as supplier_name\r\n"
+					+ "		s.supplierName as supplier_name,\r\n"
+					+ "		ob.shippingPrice as shippingPrice\r\n"
 					+ "from OrderBuy ob\r\n"
 					+ "join Order_Item oi on oi.orderBuy_id = ob.id\r\n"
 					+ "join ColorSize cs on cs.id = oi.colorSize_id\r\n"
@@ -103,6 +104,7 @@ public class OrderBuyDAO {
 					map_order_buy.put("order_note", (String) o[2]);
 					map_order_buy.put("order_paymethod", (String) o[13]);
 					map_order_buy.put("order_status", (String) o[14]);
+					map_order_buy.put("shipping_price", (double) o[19]);
 					map_client.put("client_id", (int) o[15]);
 					map_client.put("client_name", (String) o[16]);
 					map_order_buy.put("client", map_client);
@@ -176,7 +178,8 @@ public class OrderBuyDAO {
 					+ "		g.id as guest_id,\r\n"
 					+ "		g.name as guest_name,\r\n"
 					+ "		s.id as supplier_id,\r\n"
-					+ "		s.supplierName as supplier_name\r\n"
+					+ "		s.supplierName as supplier_name,\r\n"
+					+ "		ob.shippingPrice as shippingPrice,\r\n"
 					+ "from OrderBuy ob\r\n"
 					+ "join Order_Item oi on oi.orderBuy_id = ob.id\r\n"
 					+ "join ColorSize cs on cs.id = oi.colorSize_id\r\n"
@@ -197,6 +200,7 @@ public class OrderBuyDAO {
 					map_order_buy.put("order_note", (String) o[2]);
 					map_order_buy.put("order_paymethod", (String) o[13]);
 					map_order_buy.put("order_status", (String) o[14]);
+					map_order_buy.put("shipping_price", (double) o[19]);
 					map_client.put("guest_id", (int) o[15]);
 					map_client.put("guest_name", (String) o[16]);
 					map_order_buy.put("guest", map_client);

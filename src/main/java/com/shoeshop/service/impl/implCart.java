@@ -44,17 +44,18 @@ public class implCart implements CartService{
 
 	@Override
 	public boolean updateQuantityByID(Map<String, ?> body) {
-		int id = Integer.parseInt(body.get("id").toString());
+		int id = Integer.parseInt(body.get("user_id").toString());
+		int colorsize_id = Integer.parseInt(body.get("colorsize_id").toString());
 		int quantity = Integer.parseInt(body.get("quantity").toString());
-		return new CartDAO().updateCartByID(quantity, id);
+		return new CartDAO().updateCartByID(quantity, id, colorsize_id);
 	}
 
 	@Override
 	public boolean deleteCart(Map<String, ?> body) {
 		try {
-			int id = Integer.parseInt(body.get("id").toString());
-			System.out.println(id);
-			return new CartDAO().deleteCartByID(id);
+			int id = Integer.parseInt(body.get("user_id").toString());
+			int colorsize_id = Integer.parseInt(body.get("colorsize_id").toString());
+			return new CartDAO().deleteCartByID(id, colorsize_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

@@ -25,6 +25,8 @@ public class OrderBuy {
 	private UserOne user;
 	@ManyToOne
 	private Guest guest;
+	private double shippingPrice;
+	
 	public int getId() {
 		return id;
 	}
@@ -67,29 +69,11 @@ public class OrderBuy {
 	public void setGuest(Guest guest) {
 		this.guest = guest;
 	}
-	@Override
-	public String toString() {
-		return "OrderBuy [id=" + id + ", date=" + date + ", status=" + status + ", note=" + note + ", payMethod="
-				+ payMethod + ", user=" + user + ", guest=" + guest + "]";
+	public double getShippingPrice() {
+		return shippingPrice;
 	}
-	public OrderBuy(int id, Date date, String status, String note, String payMethod, UserOne user, Guest guest) {
-		super();
-		this.id = id;
-		this.date = date;
-		this.status = status;
-		this.note = note;
-		this.payMethod = payMethod;
-		this.user = user;
-		this.guest = guest;
-	}
-	public OrderBuy(Date date, String status, String note, String payMethod, UserOne user, Guest guest) {
-		super();
-		this.date = date;
-		this.status = status;
-		this.note = note;
-		this.payMethod = payMethod;
-		this.user = user;
-		this.guest = guest;
+	public void setShippingPrice(double shippingPrice) {
+		this.shippingPrice = shippingPrice;
 	}
 	public OrderBuy(int id,String status) {
 		super();
@@ -104,8 +88,35 @@ public class OrderBuy {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public OrderBuy(int id, Date date, String status, String note, String payMethod, UserOne user, Guest guest,
+			double shippingPrice) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.status = status;
+		this.note = note;
+		this.payMethod = payMethod;
+		this.user = user;
+		this.guest = guest;
+		this.shippingPrice = shippingPrice;
+	}
 	
-	
+	public OrderBuy(Date date, String status, String note, String payMethod, UserOne user, Guest guest,
+			double shippingPrice) {
+		super();
+		this.date = date;
+		this.status = status;
+		this.note = note;
+		this.payMethod = payMethod;
+		this.user = user;
+		this.guest = guest;
+		this.shippingPrice = shippingPrice;
+	}
+	@Override
+	public String toString() {
+		return "OrderBuy [id=" + id + ", date=" + date + ", status=" + status + ", note=" + note + ", payMethod="
+				+ payMethod + ", user=" + user + ", guest=" + guest + ", shippingPrice=" + shippingPrice + "]";
+	}
 
 	
 	

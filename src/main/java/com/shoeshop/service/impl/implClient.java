@@ -41,7 +41,7 @@ public class implClient implements ClientsService {
 				c2 = true;
 			}
 		});
-		while(c1 == false || c2 == false) {System.out.println("GET !!!");}
+		while(c1 == false || c2 == false) {System.out.print("");}
 		users.forEach(user -> {
 			Map<String, Object> m = new HashMap<>();
 			m.put("client", user);

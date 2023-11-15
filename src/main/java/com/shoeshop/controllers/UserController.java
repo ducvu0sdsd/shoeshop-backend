@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,9 +25,10 @@ import com.shoeshop.repositories.UserDAO;
 import io.jsonwebtoken.Claims;
 
 @RestController
+@RequestMapping("/api/v1")
 public class UserController extends JwtAuthenticationController { 
 	
-	@GetMapping("/account/get-account")
+	@GetMapping("/accounts/get-account")
 	public UserOne getUser(@RequestHeader("Authorization") String authorizationHeader, @RequestParam("username") String username) {
 		try {
 			boolean isAuth = validateToken(authorizationHeader, username);
@@ -42,7 +44,7 @@ public class UserController extends JwtAuthenticationController {
 		}
 	}
 	
-	@PostMapping("/account/delete-account")
+	@PostMapping("/accounts/delete-account")
 	public boolean deleteUser(@RequestHeader("Authorization") String authorizationHeader, @RequestBody() Map<String, String> body) {
 		String username = body.get("username");
 		try {
@@ -58,7 +60,7 @@ public class UserController extends JwtAuthenticationController {
 		}
 	}
 	
-	@PutMapping("/account/update-email-account")
+	@PutMapping("/accounts/update-email-account")
 	public boolean updateEmailUser (@RequestHeader("Authorization") String authorizationHeader, @RequestBody Map<String, String> body) {
 		String username = body.get("username");
 		String email = body.get("email");
@@ -76,7 +78,7 @@ public class UserController extends JwtAuthenticationController {
 		}
 	}
 	
-	@PutMapping("/account/update-password-account")
+	@PutMapping("/accounts/update-password-account")
 	public boolean updatePasswordUser (@RequestHeader("Authorization") String authorizationHeader, @RequestBody Map<String, String> body) {
 		String username = body.get("username");
 		String oldPassword = body.get("oldpass");
@@ -100,7 +102,7 @@ public class UserController extends JwtAuthenticationController {
 		}
 	}
 	
-	@PutMapping("/account/update-avatar-account")
+	@PutMapping("/accounts/update-avatar-account")
 	public boolean updateAvatarUser (@RequestHeader("Authorization") String authorizationHeader, @RequestBody Map<String, String> body) {
 		String username = body.get("username");
 		String avatarEncode = body.get("avatar");
@@ -123,7 +125,7 @@ public class UserController extends JwtAuthenticationController {
 		}
 	}
 
-	@PutMapping("/account/update-information-account")
+	@PutMapping("/accounts/update-information-account")
 	public boolean updateInformationUser (@RequestHeader("Authorization") String authorizationHeader, @RequestBody Map<String, String> body) throws ParseException {
 		String username = body.get("username");
 		String name = body.get("name");

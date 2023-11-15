@@ -96,7 +96,7 @@ public class implOrder implements OrderService{
 					}
 				});
 			});
-			while (latch.getCount() > 0 || c1 == false) {System.out.println("Insert !!!");}
+			while (latch.getCount() > 0 || c1 == false) {System.out.print("");}
 			
 			try {
 				Thread.sleep(300);
@@ -124,7 +124,7 @@ public class implOrder implements OrderService{
 					}
 				});
 			});
-			while (latch1.getCount() > 0) {System.out.println("Insert !!!");}
+			while (latch1.getCount() > 0) {System.out.print("");}
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -151,7 +151,7 @@ public class implOrder implements OrderService{
 				c2 = true;
 			}
 		});
-		while (c1 == false || c2 == false){System.out.println("Get All Order Buy !!!");}
+		while (c1 == false || c2 == false){System.out.print("");}
 		l1.forEach(item -> {l.add(item);});
 		l2.forEach(item -> {l.add(item);});
 		return l;

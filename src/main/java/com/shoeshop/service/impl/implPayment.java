@@ -40,6 +40,7 @@ public class implPayment implements PaymentService{
 			String paymethod = (String) body.get("method");
 			Date date = new Date();
 			int user_id = (int) body.get("user_id");
+			double shippingPrice = (double) body.get("shippingPrice");
 			List<Map<String, ?>> colorsizes = (List<Map<String, ?>>)body.get("colorsizes");			
 			ob = null;
 			c1 = c2 = false;
@@ -67,11 +68,11 @@ public class implPayment implements PaymentService{
 			executorService.execute(new Runnable() {
 				@Override
 				public void run() {
-					ob = new OrderBuyDAO().insert(new OrderBuy(date, status, note, paymethod, new UserOne(user_id), null));
+					ob = new OrderBuyDAO().insert(new OrderBuy(date, status, note, paymethod, new UserOne(user_id), null, shippingPrice));
 					c2 = true;
 				}
 			});
-			while (latch.getCount() > 0 || c2 == false) {System.out.println("Inserting Guest And Updating Color Size");}
+			while (latch.getCount() > 0 || c2 == false) {System.out.print("");}
 			CountDownLatch latch1 = new CountDownLatch(list_cre.size());
 			list_cre.forEach(item -> {
 				executorService.execute(new Runnable() {
@@ -86,7 +87,7 @@ public class implPayment implements PaymentService{
 					}
 				});
 			});
-			while (latch1.getCount() > 0) {System.out.println("Inserting Order Buy");}
+			while (latch1.getCount() > 0) {System.out.print("");}
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -113,13 +114,14 @@ public class implPayment implements PaymentService{
 					c1 = true;
 				}
 			});
-			while(c1 == false) {System.out.println("Insert Guest");}
+			while(c1 == false) {System.out.print("");}
 			
 			// other
 			String note = (String) body.get("note");
 			String status = "Waiting for delivery";
 			String paymethod = (String) body.get("method");
 			Date date = new Date();
+			double shippingPrice = (double) body.get("shippingPrice");
 			List<Map<String, ?>> colorsizes = (List<Map<String, ?>>)body.get("colorsizes");			
 			ob = null;
 			c1 = c2 = false;
@@ -146,11 +148,11 @@ public class implPayment implements PaymentService{
 			executorService.execute(new Runnable() {
 				@Override
 				public void run() {
-					ob = new OrderBuyDAO().insert(new OrderBuy(date, status, note, paymethod, null, guest));
+					ob = new OrderBuyDAO().insert(new OrderBuy(date, status, note, paymethod, null, guest, shippingPrice));
 					c2 = true;
 				}
 			});
-			while (latch.getCount() > 0 || c2 == false) {System.out.println("Inserting Guest And Updating Color Size");}
+			while (latch.getCount() > 0 || c2 == false) {System.out.print("");}
 			CountDownLatch latch1 = new CountDownLatch(list_cre.size());
 			list_cre.forEach(item -> {
 				executorService.execute(new Runnable() {
@@ -165,7 +167,7 @@ public class implPayment implements PaymentService{
 					}
 				});
 			});
-			while (latch1.getCount() > 0) {System.out.println("Inserting Order Buy");}
+			while (latch1.getCount() > 0) {System.out.print("");}
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -181,6 +183,7 @@ public class implPayment implements PaymentService{
 			String paymethod = (String) body.get("method");
 			Date date = new Date();
 			int user_id = (int) body.get("user_id");
+			double shippingPrice = (double) body.get("shippingPrice");
 			List<Map<String, ?>> colorsizes = (List<Map<String, ?>>)body.get("colorsizes");			
 			ob = null;
 			c1 = c2 = false;
@@ -208,11 +211,11 @@ public class implPayment implements PaymentService{
 			executorService.execute(new Runnable() {
 				@Override
 				public void run() {
-					ob = new OrderBuyDAO().insert(new OrderBuy(date, status, note, paymethod, new UserOne(user_id), null));
+					ob = new OrderBuyDAO().insert(new OrderBuy(date, status, note, paymethod, new UserOne(user_id), null, shippingPrice));
 					c2 = true;
 				}
 			});
-			while (latch.getCount() > 0 || c2 == false) {System.out.println("Inserting OrderBuy And Updating Color Size");}
+			while (latch.getCount() > 0 || c2 == false) {System.out.print("");}
 			c1= false;
 			CountDownLatch latch1 = new CountDownLatch(list_cre.size());
 			list_cre.forEach(item -> {
@@ -235,7 +238,7 @@ public class implPayment implements PaymentService{
 					c1 = true;
 				}
 			});
-			while (latch1.getCount() > 0 || c1 == false) {System.out.println("Inserting Order Buy");}
+			while (latch1.getCount() > 0 || c1 == false) {System.out.print("");}
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
