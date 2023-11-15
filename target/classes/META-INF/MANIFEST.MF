@@ -37,6 +37,6 @@ Implementation-Version: 0.0.1-SNAPSHOT
 Implementation-Vendor-Id: com.javainuse
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
  -starter-parent/spring-boot-jwt
-Main-Class: com.mypackage.MyClass
+Main-Class: com.shoeshop.SpringBootHelloWorldApplication
 Created-By: Maven Integration for Eclipse
 
