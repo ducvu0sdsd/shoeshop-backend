@@ -5,6 +5,6 @@ RUN mvn clean package -DskipTests
 
 FROM openjdk:8-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/shoeshop-backend-0.0.1-SNAPSHOT.jar /app/shoeshop-backend.jar
+COPY --from=build /app/target/spring-boot-jwt-0.0.1-SNAPSHOT.jar /app/spring-boot-jwt.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "shoeshop-backend.jar"]
+ENTRYPOINT ["java", "-jar", "spring-boot-jwt.jar"]
