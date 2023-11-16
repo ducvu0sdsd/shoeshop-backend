@@ -159,7 +159,7 @@ public class implOrder implements OrderService{
 
 	@Override
 	public boolean updateStatusOrder(Map<String, ?> body) {
-		int id = (int) body.get("id");
+		int id = Integer.parseInt(body.get("id").toString());
 		String status = (String) body.get("status");
 		OrderBuy o = new OrderBuy(id, status);
 		return new OrderBuyDAO().update(o);

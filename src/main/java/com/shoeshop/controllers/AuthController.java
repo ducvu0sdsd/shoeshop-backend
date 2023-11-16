@@ -49,7 +49,7 @@ public class AuthController extends JwtAuthenticationController {
 			Date date = df.parse(body.get("date").toString());
 			String avatar = body.get("avatar").toString().equals("") ? image : body.get("avatar").toString();
 			String address = body.get("address").toString();
-			boolean admin = (boolean) body.get("admin");
+			boolean admin = false;
 			UserOne user = new UserOne(username, bCryptPasswordEncoder.encode(password), name, gender, email, phonenumber, date, avatar, admin, address);
 			if (new UserDAO().insert(user) == true){
 				return 200;
