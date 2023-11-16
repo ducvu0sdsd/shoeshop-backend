@@ -4,9 +4,9 @@
 <hibernate-configuration>
  <session-factory>
   <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-  <property name="hibernate.connection.password">sapassword</property>
-  <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=ShoeShop;trustServerCertificate=true</property>
-  <property name="hibernate.connection.username">sa</property>
+  <property name="hibernate.connection.password">bba5CacEBFac-e1C13-e1GF6Ecb-34DC</property>
+  <property name="hibernate.connection.url">jdbc:mysql://viaduct.proxy.rlwy.net:32253;DatabaseName=ShoeShop;trustServerCertificate=true</property>
+  <property name="hibernate.connection.username">root</property>
   <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.format_sql">true</property>
