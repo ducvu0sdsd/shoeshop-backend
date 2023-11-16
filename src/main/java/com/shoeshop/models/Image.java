@@ -18,7 +18,7 @@ public class Image implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Column(columnDefinition = "TEXT")
+	@Column(columnDefinition = "LONGTEXT")
 	private String image;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_id")

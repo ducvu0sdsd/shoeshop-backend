@@ -19,17 +19,17 @@ public class UserOne implements Serializable {
 	@Column(unique = true)
 	private String username;
 	private String password;
-	@Column(columnDefinition = "NVARCHAR(MAX)")
+	@Column(columnDefinition = "LONGTEXT")
 	private String name;
 	private String gender;
 	@Column(unique = true)
 	private String email;
 	private String phonenumber;
 	private Date dateofbirth;
-	@Column(columnDefinition = "TEXT")
+	@Column(columnDefinition = "LONGTEXT")
 	private String avatar;
 	private boolean admin;
-	@Column(columnDefinition = "NVARCHAR(MAX)")
+	@Column(columnDefinition = "LONGTEXT")
 	private String address;
 	
 	public int getId() {

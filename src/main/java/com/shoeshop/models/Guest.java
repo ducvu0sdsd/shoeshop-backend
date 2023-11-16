@@ -13,7 +13,7 @@ public class Guest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(columnDefinition = "NVARCHAR(255)")
+	@Column(columnDefinition = "LONGTEXT")
 	private String name;
 	private String phoneNumber;
 	private String address;

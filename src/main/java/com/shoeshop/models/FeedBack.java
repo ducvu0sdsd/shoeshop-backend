@@ -16,7 +16,7 @@ public class FeedBack {
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private int id;
-	@Column(columnDefinition = "NVARCHAR(MAX)")
+	@Column(columnDefinition = "LONGTEXT")
 	private String content;
 	@ManyToOne
 	private UserOne user;

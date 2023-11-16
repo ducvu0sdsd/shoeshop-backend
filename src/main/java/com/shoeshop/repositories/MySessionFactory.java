@@ -29,7 +29,7 @@ public class MySessionFactory {
 	
 	public SessionFactory getSessionFactory () {
 		StandardServiceRegistry registry =  new StandardServiceRegistryBuilder()
-				.configure()
+				.configure("hibernate.cfg.xml")
 				.build();
 		Metadata meta = new MetadataSources(registry)
 				.addAnnotatedClass(Brand.class)

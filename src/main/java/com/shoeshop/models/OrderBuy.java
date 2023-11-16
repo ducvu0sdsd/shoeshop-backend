@@ -18,7 +18,7 @@ public class OrderBuy {
 	private int id;
 	private Date date;
 	private String status;
-	@Column(columnDefinition = "NVARCHAR(MAX)")
+	@Column(columnDefinition = "LONGTEXT")
 	private String note;
 	private String payMethod;
 	@ManyToOne

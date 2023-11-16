@@ -24,9 +24,9 @@ public class Product implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(columnDefinition = "NVARCHAR(MAX)")
+	@Column(columnDefinition = "LONGTEXT")
 	private String name;
-	@Column(columnDefinition = "NVARCHAR(MAX)")
+	@Column(columnDefinition = "LONGTEXT")
 	private String overview;
 	private String category;
 	@ManyToOne
